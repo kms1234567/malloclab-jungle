@@ -1,4 +1,4 @@
-/*
+/*d
  * mm-naive.c - The fastest, least memory-efficient malloc package.
  * 
  * In this naive approach, a block is allocated by simply incrementing
