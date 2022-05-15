@@ -1,15 +1,3 @@
-/*
- * mm-naive.c - The fastest, least memory-efficient malloc package.
- * 
- * In this naive approach, a block is allocated by simply incrementing
- * the brk pointer.  A block is pure payload. There are no headers or
- * footers.  Blocks are never coalesced or reused. Realloc is
- * implemented directly using mm_malloc and mm_free.
- *
- * NOTE TO STUDENTS: Replace this header comment with your own header
- * comment that gives a high level description of your solution.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -18,10 +6,6 @@
 
 #include "mm.h"
 #include "memlib.h"
-/*********************************************************
- * NOTE TO STUDENTS: Before you do anything else, please
- * provide your team information in the following struct.
- ********************************************************/
 
 team_t team = {
     /* Team name */
@@ -89,6 +73,7 @@ static void insert_block(void* bp, size_t size);
 
 /* 
  * find_fit - bp는 앞 가용리스트로 계속 옮겨간다. 해당 가용리스트의 size가 asize로 충분히 들어간다면, bp를 반환한다.
+ * 
  */
 static void* find_fit(size_t asize)
 {
@@ -164,7 +149,7 @@ static void insert_block(void* bp, size_t size){
 }
 
 /*
- * remove_block - 해당 bp가 어느 사이즈 리스트에 있는지 검색 후, 해당 블록의 연결을 끊은 후, 갱신한다.
+ * remove_block - 해당 bp가 어느 사이즈 리스트에 있는지 검색 후, 해당 블록의 연결을 끊는다.
  * (case) 1. 현재 블록이 중간일 때 2. 현재 블록이 처음일 때 3. 현재 블록이 마지막일 때 4. 애초에 나 하나만 있었을 때
  */
 static void remove_block(void *bp)
